@@ -1,0 +1,16 @@
+{
+  "github-artifact": {
+    "url": "https://raw.githubusercontent.com/ehsandto/bitcoin-retarget-audit/5342141f1b73bb760c78cc98e306c9514565f86f/LICENSE",
+    "length": 1247,
+    "sha256": "6eb4c68df70f77a7104a84432ef2b94ac0dd890cc3edfdac871c0184fbe27614",
+    "front": "1ece461e73d616d7e49301e54ae7812b95a84fb4cbac21f0023cb27022c23862",
+    "tail": "b9ae3162da4533bc89497e87724cf6912a50a1f41855e25299f651fbcdb1bf22"
+  },
+  "rfc-artifact": {
+    "url": "https://www.rfc-editor.org/rfc/rfc20.txt",
+    "length": 18504,
+    "sha256": "714d11bfcbc001f98cd8a92291a19e3f670c2236ad02771092e0eea826acd13a",
+    "front": "acbf404897e4c75c661207341df76c7c506ccf8e0143e4863ab65d2d2ccafbfc",
+    "tail": "13cbc55f113964f6bb8db3919fb9a8d9c1bed9b6c0b7555286176291fbac6fa0"
+  }
+}
