@@ -41,7 +41,7 @@ function send(args, signer, entry) {
   });
 }
 
-async function transaction(step, args, signer) {
+async function transaction(step, args, signer, expected = 'SUCCESS', message) {
   let entry = proof.transactions.find(item => item.step === step);
   if (!entry) {
     assert(!verifyOnly, 'Verification requires an original broadcast journal');
@@ -55,9 +55,9 @@ async function transaction(step, args, signer) {
   assert.deepEqual(entry.args, args);
   assert.equal(entry.signer, signer.address);
   assert(entry.hash, 'Broadcast status unknown. Inspect account history before any retry.');
-  entry.receipt = await receipt(entry.hash);
+  entry.receipt = await receipt(entry.hash, expected, message);
   save();
-  assert(entry.receipt.committed, 'Transaction did not commit');
+  assert.equal(entry.receipt.committed, expected === 'SUCCESS');
   const native = await rpc('eth_getTransactionByHash', [entry.hash]);
   assert.equal(native.from_address.toLowerCase(), signer.address.toLowerCase());
   assert.equal(BigInt(native.nonce), BigInt(entry.nonce));
@@ -67,8 +67,8 @@ async function transaction(step, args, signer) {
 }
 
 const fixtures = JSON.parse(fs.readFileSync('REFERENCE.json', 'utf8'));
-const wrongPin = '0'.repeat(64);
-const cases = [...Object.entries(fixtures), ['wrong-commitment', fixtures['github-artifact']]];
+const wrongPin = 'f'.repeat(64);
+const cases = [...Object.entries(fixtures), ['wrong-sha256', fixtures['github-artifact']]];
 
 function checkReport(record, fixture, expected) {
   const r = record.report;
@@ -124,7 +124,15 @@ proof.records ??= {};
 save();
 
 for (const [name, fixture] of cases) {
-  const pin = name === 'wrong-commitment' ? wrongPin : fixture.sha256;
+  const pin = name === 'wrong-sha256' ? wrongPin : fixture.sha256;
+  if (name === 'wrong-sha256' && proof.transactions.some(t => t.step === 'wrong-commitment')) {
+    const badArgs = ['write', proof.address, 'audit', '--args', 'wrong-commitment', fixture.url, '0'.repeat(64)];
+    await transaction('wrong-commitment', badArgs, publisher, 'ERROR', "got 'int'");
+    assert(await import('./check.mjs').then(({denied}) => denied(proof.address, 'get_audit',
+      [publisher.address, 'wrong-commitment'])));
+    proof.excluded_cli_error = 'Numeric coercion; no audit was stored';
+    save();
+  }
   const to = await transaction(name, ['write', proof.address, 'audit', '--args', name, fixture.url, pin], publisher);
   assert.equal(to.toLowerCase(), proof.address.toLowerCase());
   const record = await read(proof.address, 'get_audit', [publisher.address, name]);

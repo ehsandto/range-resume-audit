@@ -1,0 +1,335 @@
+{
+  "network": "StudioNet",
+  "source_commit": "2ed1c791ebdcf7f66298531c851dd825661b52e2",
+  "transactions": [
+    {
+      "step": "deploy",
+      "args": [
+        "deploy",
+        "--contract",
+        "contracts/RangeResumeAudit.py"
+      ],
+      "signer": "0x7a413BB4AB62E31d62d4cD9efC8C8a8Dae37FB42",
+      "nonce": "0x1e9",
+      "hash": "0x5844612407da3e9289f7341c42d2ac7167536f3610c4405f844a007d357743d0",
+      "receipt": {
+        "hash": "0x5844612407da3e9289f7341c42d2ac7167536f3610c4405f844a007d357743d0",
+        "address": "0x06fced7250854B788025545C848f75a0705D89C2",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "committed": true,
+        "leader_only": false,
+        "initial_validators": 5,
+        "agree_votes": 3,
+        "idle_votes": 2,
+        "disagree_votes": 0,
+        "validator_execution_seen": true
+      }
+    },
+    {
+      "step": "github-artifact",
+      "args": [
+        "write",
+        "0x06fced7250854B788025545C848f75a0705D89C2",
+        "audit",
+        "--args",
+        "github-artifact",
+        "https://raw.githubusercontent.com/ehsandto/bitcoin-retarget-audit/5342141f1b73bb760c78cc98e306c9514565f86f/LICENSE",
+        "6eb4c68df70f77a7104a84432ef2b94ac0dd890cc3edfdac871c0184fbe27614"
+      ],
+      "signer": "0x7a413BB4AB62E31d62d4cD9efC8C8a8Dae37FB42",
+      "nonce": "0x1ea",
+      "hash": "0x27733903cb35efac71ca2d5ab8ef62e42172e66c34b620f956d41e70aa274696",
+      "receipt": {
+        "hash": "0x27733903cb35efac71ca2d5ab8ef62e42172e66c34b620f956d41e70aa274696",
+        "address": "0x06fced7250854B788025545C848f75a0705D89C2",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "committed": true,
+        "leader_only": false,
+        "initial_validators": 5,
+        "agree_votes": 3,
+        "idle_votes": 2,
+        "disagree_votes": 0,
+        "validator_execution_seen": true
+      }
+    },
+    {
+      "step": "rfc-artifact",
+      "args": [
+        "write",
+        "0x06fced7250854B788025545C848f75a0705D89C2",
+        "audit",
+        "--args",
+        "rfc-artifact",
+        "https://www.rfc-editor.org/rfc/rfc20.txt",
+        "714d11bfcbc001f98cd8a92291a19e3f670c2236ad02771092e0eea826acd13a"
+      ],
+      "signer": "0x7a413BB4AB62E31d62d4cD9efC8C8a8Dae37FB42",
+      "nonce": "0x1eb",
+      "hash": "0x66887e7d3a997fa77902a3ebf2e8ad827015863a57588b95e7dc305a44a93527",
+      "receipt": {
+        "hash": "0x66887e7d3a997fa77902a3ebf2e8ad827015863a57588b95e7dc305a44a93527",
+        "address": "0x06fced7250854B788025545C848f75a0705D89C2",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "committed": true,
+        "leader_only": false,
+        "initial_validators": 5,
+        "agree_votes": 3,
+        "idle_votes": 2,
+        "disagree_votes": 0,
+        "validator_execution_seen": true
+      }
+    },
+    {
+      "step": "wrong-commitment",
+      "args": [
+        "write",
+        "0x06fced7250854B788025545C848f75a0705D89C2",
+        "audit",
+        "--args",
+        "wrong-commitment",
+        "https://raw.githubusercontent.com/ehsandto/bitcoin-retarget-audit/5342141f1b73bb760c78cc98e306c9514565f86f/LICENSE",
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "signer": "0x7a413BB4AB62E31d62d4cD9efC8C8a8Dae37FB42",
+      "nonce": "0x1ec",
+      "hash": "0xb9996ea61f665e4dd62598a1b4771275a5524641f37183a90771365100e6edc8",
+      "receipt": {
+        "hash": "0xb9996ea61f665e4dd62598a1b4771275a5524641f37183a90771365100e6edc8",
+        "address": "0x06fced7250854B788025545C848f75a0705D89C2",
+        "status": "FINALIZED",
+        "execution": "ERROR",
+        "consensus": "MAJORITY_AGREE",
+        "expected_error_matched": true,
+        "committed": false,
+        "leader_only": false,
+        "initial_validators": 5,
+        "agree_votes": 3,
+        "idle_votes": 2,
+        "disagree_votes": 0,
+        "validator_execution_seen": true
+      }
+    },
+    {
+      "step": "wrong-sha256",
+      "args": [
+        "write",
+        "0x06fced7250854B788025545C848f75a0705D89C2",
+        "audit",
+        "--args",
+        "wrong-sha256",
+        "https://raw.githubusercontent.com/ehsandto/bitcoin-retarget-audit/5342141f1b73bb760c78cc98e306c9514565f86f/LICENSE",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+      ],
+      "signer": "0x7a413BB4AB62E31d62d4cD9efC8C8a8Dae37FB42",
+      "nonce": "0x1ed",
+      "hash": "0x07de641ddd2ee7daddc5057f6cc62cdfda743e28c067fcaec82c9196453dd34c",
+      "receipt": {
+        "hash": "0x07de641ddd2ee7daddc5057f6cc62cdfda743e28c067fcaec82c9196453dd34c",
+        "address": "0x06fced7250854B788025545C848f75a0705D89C2",
+        "status": "FINALIZED",
+        "execution": "SUCCESS",
+        "consensus": "MAJORITY_AGREE",
+        "committed": true,
+        "leader_only": false,
+        "initial_validators": 5,
+        "agree_votes": 3,
+        "idle_votes": 2,
+        "disagree_votes": 0,
+        "validator_execution_seen": true
+      }
+    }
+  ],
+  "address": "0x06fced7250854B788025545C848f75a0705D89C2",
+  "source": {
+    "address": "0x06fced7250854B788025545C848f75a0705D89C2",
+    "source_match": true,
+    "sha256": "82dda792b3923511145236a0206a97c4424366048c3645214cd4ddc87b4878a5"
+  },
+  "records": {
+    "github-artifact": {
+      "id": "93c941255d75c70a37c6e8c9600c2aefbefc91423ef18370fdc946ed7de3800b",
+      "report": {
+        "assembled_sha256": "6eb4c68df70f77a7104a84432ef2b94ac0dd890cc3edfdac871c0184fbe27614",
+        "checks": {
+          "fresh_guard": "PARTIAL_MATCH",
+          "front_matches": true,
+          "outside_416": true,
+          "overlap_matches": true,
+          "stale_guard": "STALE_PARTIAL",
+          "tail_matches": true
+        },
+        "decision": "PINNED_RESUME",
+        "expected_sha256": "6eb4c68df70f77a7104a84432ef2b94ac0dd890cc3edfdac871c0184fbe27614",
+        "observations": {
+          "fresh": {
+            "etag": "\"70c04f30ac8fc4be37e14c1c556c8aa60c020b676a394c3277683e2b6a985070\"",
+            "http": 206,
+            "identity": true,
+            "range": [
+              619,
+              1246,
+              1247
+            ],
+            "sha256": "b9ae3162da4533bc89497e87724cf6912a50a1f41855e25299f651fbcdb1bf22",
+            "size": 628
+          },
+          "front": {
+            "etag": "\"70c04f30ac8fc4be37e14c1c556c8aa60c020b676a394c3277683e2b6a985070\"",
+            "http": 206,
+            "identity": true,
+            "range": [
+              0,
+              626,
+              1247
+            ],
+            "sha256": "1ece461e73d616d7e49301e54ae7812b95a84fb4cbac21f0023cb27022c23862",
+            "size": 627
+          },
+          "full": {
+            "etag": "\"70c04f30ac8fc4be37e14c1c556c8aa60c020b676a394c3277683e2b6a985070\"",
+            "http": 200,
+            "identity": true,
+            "range": [],
+            "sha256": "6eb4c68df70f77a7104a84432ef2b94ac0dd890cc3edfdac871c0184fbe27614",
+            "size": 1247
+          },
+          "outside": {
+            "http": 416,
+            "range": [
+              1247
+            ]
+          },
+          "stale": {
+            "etag": "\"70c04f30ac8fc4be37e14c1c556c8aa60c020b676a394c3277683e2b6a985070\"",
+            "http": 206,
+            "identity": true,
+            "range": [
+              619,
+              1246,
+              1247
+            ],
+            "sha256": "b9ae3162da4533bc89497e87724cf6912a50a1f41855e25299f651fbcdb1bf22",
+            "size": 628
+          },
+          "tail": {
+            "etag": "\"70c04f30ac8fc4be37e14c1c556c8aa60c020b676a394c3277683e2b6a985070\"",
+            "http": 206,
+            "identity": true,
+            "range": [
+              619,
+              1246,
+              1247
+            ],
+            "sha256": "b9ae3162da4533bc89497e87724cf6912a50a1f41855e25299f651fbcdb1bf22",
+            "size": 628
+          }
+        },
+        "schema": "range-resume/v1",
+        "url": "https://raw.githubusercontent.com/ehsandto/bitcoin-retarget-audit/5342141f1b73bb760c78cc98e306c9514565f86f/LICENSE",
+        "windows": [
+          [
+            0,
+            626
+          ],
+          [
+            619,
+            1246
+          ]
+        ]
+      }
+    },
+    "rfc-artifact": {
+      "id": "edf90c295d153bc4db6b0c19350e899e5577db9257009f71aaf7270a7c84e25c",
+      "report": {
+        "assembled_sha256": null,
+        "checks": {
+          "fresh_guard": "UNTESTED",
+          "front_matches": false,
+          "outside_416": false,
+          "overlap_matches": false,
+          "stale_guard": "UNTESTED",
+          "tail_matches": false
+        },
+        "decision": "FULL_DOWNLOAD",
+        "expected_sha256": "714d11bfcbc001f98cd8a92291a19e3f670c2236ad02771092e0eea826acd13a",
+        "observations": {
+          "front": {
+            "etag": "",
+            "http": 200,
+            "identity": true,
+            "range": [],
+            "sha256": "714d11bfcbc001f98cd8a92291a19e3f670c2236ad02771092e0eea826acd13a",
+            "size": 18504
+          },
+          "full": {
+            "etag": "",
+            "http": 200,
+            "identity": true,
+            "range": [],
+            "sha256": "714d11bfcbc001f98cd8a92291a19e3f670c2236ad02771092e0eea826acd13a",
+            "size": 18504
+          },
+          "outside": {
+            "etag": "",
+            "http": 200,
+            "identity": true,
+            "range": [],
+            "sha256": "714d11bfcbc001f98cd8a92291a19e3f670c2236ad02771092e0eea826acd13a",
+            "size": 18504
+          },
+          "tail": {
+            "etag": "",
+            "http": 200,
+            "identity": true,
+            "range": [],
+            "sha256": "714d11bfcbc001f98cd8a92291a19e3f670c2236ad02771092e0eea826acd13a",
+            "size": 18504
+          }
+        },
+        "schema": "range-resume/v1",
+        "url": "https://www.rfc-editor.org/rfc/rfc20.txt",
+        "windows": [
+          [
+            0,
+            9255
+          ],
+          [
+            9248,
+            18503
+          ]
+        ]
+      }
+    },
+    "wrong-sha256": {
+      "id": "9ea5c11b0565a95927a70344a75d7d526d0aabcbe50bec2487cbca41dd55d7c1",
+      "report": {
+        "assembled_sha256": null,
+        "checks": {},
+        "decision": "ARTIFACT_MISMATCH",
+        "expected_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "observations": {
+          "full": {
+            "etag": "\"70c04f30ac8fc4be37e14c1c556c8aa60c020b676a394c3277683e2b6a985070\"",
+            "http": 200,
+            "identity": true,
+            "range": [],
+            "sha256": "6eb4c68df70f77a7104a84432ef2b94ac0dd890cc3edfdac871c0184fbe27614",
+            "size": 1247
+          }
+        },
+        "schema": "range-resume/v1",
+        "url": "https://raw.githubusercontent.com/ehsandto/bitcoin-retarget-audit/5342141f1b73bb760c78cc98e306c9514565f86f/LICENSE",
+        "windows": []
+      }
+    }
+  },
+  "excluded_cli_error": "Numeric coercion; no audit was stored",
+  "cross_publisher_lookup": "Unknown run",
+  "verified": true
+}

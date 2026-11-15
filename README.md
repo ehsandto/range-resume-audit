@@ -4,6 +4,8 @@ RangeResumeAudit is a GenLayer primitive for deciding how to resume a small,
 content-addressed HTTP download. A release verifier or mirror monitor can query
 an immutable observation for an exact URL and independently known SHA-256.
 
+[StudioNet proof matrix](LIVE_PROOFS.md) · [Submission text](SUBMISSION.md)
+
 Call `audit(run, url, expected_sha256)`. There is no owner or approval stage.
 The sender's run ID is write-once. Read the exact report and its digest with
 `get_audit(publisher, run)`. Results are public; publishers cannot overwrite
